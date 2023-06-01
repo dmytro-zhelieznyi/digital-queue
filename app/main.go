@@ -7,11 +7,13 @@ import (
 )
 
 var closeMain = make(chan bool)
+var numOfEmployees = 3
+var shopWorkTime = 15
 
 func main() {
 	color.Blue("***** DIGITAL QUEUE START *****")
 
-	shop := initShop(3, time.Second*10)
+	shop := initShop(numOfEmployees, time.Second*time.Duration(shopWorkTime))
 	shop.work()
 
 	<-closeMain

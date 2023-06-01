@@ -18,6 +18,7 @@ func (employee *Employee) work(shop *Shop) {
 			select {
 			case client := <-shop.ClientsChan:
 				if !employee.Work {
+					employee.Work = true
 					timeBackToWork := 200
 					color.Yellow("%s is going back to work... %dms", employee.Name, timeBackToWork)
 					time.Sleep(time.Millisecond * time.Duration(timeBackToWork))
