@@ -29,9 +29,9 @@ func (employee *Employee) work(shop *Shop) {
 				time.Sleep(time.Millisecond * time.Duration(timeToTakeStuff))
 			default:
 				timeForBreak := 500
-				time.Sleep(time.Millisecond * time.Duration(timeForBreak))
 				color.Yellow("%s has coffee break (%dms) since there is no clients in the shop.",
 					employee.Name, timeForBreak)
+				time.Sleep(time.Millisecond * time.Duration(timeForBreak))
 				employee.Work = false
 			}
 			if !shop.Open && len(shop.ClientsChan) == 0 {
